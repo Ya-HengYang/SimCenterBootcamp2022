@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
       matrix1[i*numCols + j] = i;  // matrix1[i][j]=i;
   }
 
-  free(matrix1);
+\  free(matrix1);
 
   // allocate memory & set the data: COLUMN MAJOR ORDER
   matrix1 = (double *)malloc(n*n*sizeof(double *));

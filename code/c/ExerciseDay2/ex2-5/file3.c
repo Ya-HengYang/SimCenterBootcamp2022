@@ -1,4 +1,3 @@
-
 // program to read values from a file, each file a csv list of int and two double
 // written: fmk
 
@@ -29,8 +28,17 @@ int main(int argc, char **argv) {
 
     if (vectorSize == maxVectorSize) {
       // some code needed here I think .. programming exercise
+      //free(vector1);
+      //free(Vector2);
+      //double *vector1 = (double *)malloc(maxVectorSize*sizeof(double));
+      //double *vector2 = (double *)malloc(maxVectorSize*sizeof(double));  
+      //vectorSize = 0;
+      vector1 = (double *)realloc(vector1,(maxVectorSize*2) * sizeof(double));
+      vector2 = (double *)realloc(vector2,(maxVectorSize*2) * sizeof(double));
+      maxVectorSize = maxVectorSize * 2;
     }
   }
-
+  
   fclose(filePtr);  
+  return 0;
 }
