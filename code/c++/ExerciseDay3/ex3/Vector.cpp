@@ -5,13 +5,13 @@
 Vector::Vector(int sz)
 {
   size = 0;
-  data = 0; // PROVIDE CODE
+  data = new double [size]; // PROVIDE CODE
 }
 
 Vector::~Vector()
 {
   if (data != 0)
-    ; // PROVIDE CODE
+    delete [] data; // PROVIDE CODE
 }
 
 // some methods
@@ -31,7 +31,7 @@ Vector::zero(void)
 double 
 Vector::norm(void) const
 {
-  // PROVIDE CODE
+  return sqrt(this->dot(*this));// PROVIDE CODE
 }
 
 double 
@@ -45,6 +45,9 @@ Vector::dot(const Vector &other) const
   }
   
   // PROVIDE CODE
+  for (int i = 0;i<size;i++){
+    result += data[i] * other.data[i];
+  }
 
   
   return result;
@@ -70,7 +73,9 @@ Vector::operator+(const Vector &other) const
   }
 
   // PROVIDE CODE
-
+  for (int i = 0;i<size;i++){
+    result.data[i] = data[i] + other.data[i]; 
+  }
   return result;
 }
 
@@ -78,24 +83,34 @@ void
 Vector::operator=(const Vector &other)
 {
   // PROVIDE CODE
+  for (int i = 0;i<size;i++){
+    data[i] = other.data[i]; 
+  }
 }
 
 void 
 Vector::operator+=(double val)
 {
   // PROVIDE CODE
+  for (int i = 0;i<size;i++){
+    data[i] += val; 
+  }
 }
 
 void 
 Vector::operator+=(const Vector &other)
 {
   // PROVIDE CODE
+  for (int i = 0;i<size;i++){
+    data[i] += other.data[i]; 
+  }
 }
 
 double 
 Vector::operator()(int x) const
 {
   // PROVIDE CODE
+  return data[x];
 }
 
 double &
@@ -107,5 +122,6 @@ Vector::operator()(int x)
     return errorResult;
   }
   // PROVIDE CODE
+  return data[x];
 }
 
